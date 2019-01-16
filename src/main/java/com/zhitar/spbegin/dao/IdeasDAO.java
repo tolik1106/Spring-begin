@@ -8,7 +8,7 @@ public interface IdeasDAO {
 
     long add(Idea idea);
 
-    void update(Idea idea);
+    long update(Idea idea);
 
     void delete(long id);
 
