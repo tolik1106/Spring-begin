@@ -28,9 +28,9 @@
                                           title="Dislike"></span>
                                 </span>
                         <span class="idea-edit-block">
-                                    <a href="/update?id=${item.id}" title="Edit" class="idea-edit"><span
+                                    <a href="update?id=${item.id}" title="Edit" class="idea-edit"><span
                                             class="glyphicon glyphicon-pencil"></span></a>
-                                    <a href="/delete?id=${item.id}" title="Delete" class="idea-delete"><span
+                                    <a href="delete?id=${item.id}" title="Delete" class="idea-delete"><span
                                             class="glyphicon glyphicon-remove"></span></a>
                                 </span>
                     </div>

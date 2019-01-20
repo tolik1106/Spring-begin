@@ -17,10 +17,13 @@
     <div class="container">
         <ul class="nav navbar-nav navbar-left">
             <li>
-                <a href="/list"><span class="glyphicon glyphicon-list-alt"></span> Ideas list</a>
+                <a href="list"><span class="glyphicon glyphicon-list-alt"></span> Ideas list</a>
             </li>
             <li>
-                <a href="/new"><span class="glyphicon glyphicon-plus"></span> Add idea </a>
+                <a href="new"><span class="glyphicon glyphicon-plus"></span> Add idea </a>
+            </li>
+            <li>
+                <a href="login"><span class="glyphicon glyphicon-user"></span> Log in </a>
             </li>
         </ul>
     </div>

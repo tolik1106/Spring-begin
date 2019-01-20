@@ -1,5 +1,6 @@
 package com.zhitar.spbegin.controller;
 
+import com.zhitar.spbegin.dto.IdeaDTO;
 import com.zhitar.spbegin.model.Idea;
 import com.zhitar.spbegin.service.IdeasService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,16 +21,16 @@ public class AppController {
     @Autowired
     private IdeasService service;
 
-    @GetMapping("/list")
+    @GetMapping(value = {"/list", "/"})
     public String hello(ModelMap map) {
-        List<Idea> ideas = service.list();
+        List<IdeaDTO> ideas = service.list();
         map.addAttribute("list", ideas);
         return "index";
     }
 
     @GetMapping("/new")
     public String createForm(ModelMap map) {
-        map.addAttribute("idea", new Idea());
+        map.addAttribute("idea", new IdeaDTO());
         return "form";
     }
 
@@ -41,20 +42,20 @@ public class AppController {
     }
 
     @PostMapping("/new")
-    public String createIdea(@ModelAttribute Idea idea) {
+    public String createIdea(@ModelAttribute IdeaDTO idea) {
         service.add(idea);
-        return "redirect:/list";
+        return "redirect:list";
     }
 
     @PostMapping("/update")
-    public ModelAndView updateAction(@ModelAttribute Idea newIdea) {
+    public ModelAndView updateAction(@ModelAttribute IdeaDTO newIdea) {
         service.update(newIdea);
-        return new ModelAndView("redirect:/list");
+        return new ModelAndView("redirect:list");
     }
 
     @GetMapping("/delete")
     public ModelAndView delete(@RequestParam long id) {
         service.delete(id);
-        return new ModelAndView("redirect:/list");
+        return new ModelAndView("redirect:list");
     }
 }

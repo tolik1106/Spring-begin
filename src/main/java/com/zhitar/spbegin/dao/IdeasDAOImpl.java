@@ -1,9 +1,11 @@
 package com.zhitar.spbegin.dao;
 
 import com.zhitar.spbegin.model.Idea;
+import com.zhitar.spbegin.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -49,5 +51,20 @@ public class IdeasDAOImpl implements IdeasDAO {
         Session session = sessionFactory.getCurrentSession();
         List list = session.createQuery("from Idea").list();
         return list;
+    }
+
+    @Override
+    public boolean registerUser(User user) {
+        Session session = sessionFactory.getCurrentSession();
+        Serializable id = session.save(user);
+        return true;
+    }
+
+    @Override
+    public boolean isUserExists(String login) {
+        Session session = sessionFactory.getCurrentSession();
+        Query query = session.createQuery("SELECT COUNT(id) FROM User WHERE email = :email");
+        query.setParameter("email", login);
+        return (Long)query.uniqueResult() > 0;
     }
 }

@@ -12,7 +12,7 @@
 
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/ex/*</url-pattern>
     </servlet-mapping>
 
     <listener>

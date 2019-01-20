@@ -6,7 +6,7 @@
 <t:layout title="Update idea">
     <h1 class="text-center text-uppercase">Editing idea</h1>
     <div class="jumbotron">
-        <form:form id="formCreate" modelAttribute="newIdea" method="post" action="/update">
+        <form:form id="formCreate" modelAttribute="newIdea" method="post" action="update">
             <div class="form-group">
                 <label for="captionId">Caption</label>
                 <form:input path="caption" id="captionId" cssClass="form-control"/>
@@ -17,7 +17,7 @@
             </div>
             <form:hidden path="id"/>
             <button type="submit" class="btn btn-success">Update</button>
-            <a href="/list" class="danger-link">Cancel</a>
+            <a href="list" class="danger-link">Cancel</a>
         </form:form>
     </div>
 </t:layout>

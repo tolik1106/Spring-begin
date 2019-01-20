@@ -6,7 +6,7 @@
 <t:layout title="Add new Idea">
     <h1 class="text-center text-uppercase">Adding new idea</h1>
     <div class="jumbotron">
-        <form:form id="formCreate" modelAttribute="idea" method="post" action="/new">
+        <form:form id="formCreate" modelAttribute="idea" method="post" action="new">
             <div class="form-group">
                 <label for="captionId">Caption</label>
                 <form:input path="caption" id="captionId" cssClass="form-control"/>
