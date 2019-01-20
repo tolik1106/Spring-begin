@@ -20,7 +20,7 @@ public class AppController {
     @Autowired
     private IdeasService service;
 
-    @GetMapping
+    @GetMapping("/list")
     public String hello(ModelMap map) {
         List<Idea> ideas = service.list();
         map.addAttribute("list", ideas);
@@ -43,18 +43,18 @@ public class AppController {
     @PostMapping("/new")
     public String createIdea(@ModelAttribute Idea idea) {
         service.add(idea);
-        return "redirect:/";
+        return "redirect:/list";
     }
 
     @PostMapping("/update")
     public ModelAndView updateAction(@ModelAttribute Idea newIdea) {
         service.update(newIdea);
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:/list");
     }
 
     @GetMapping("/delete")
     public ModelAndView delete(@RequestParam long id) {
         service.delete(id);
-        return new ModelAndView("redirect:/");
+        return new ModelAndView("redirect:/list");
     }
 }
